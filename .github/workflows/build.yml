@@ -15,5 +15,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v5
+    - name: Set up Docker
+      uses: docker/setup-docker-action@v5
     - name: Build
       run: ./run.sh
