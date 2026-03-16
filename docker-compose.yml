@@ -1,0 +1,19 @@
+services:
+  build-pvr.zattoo_x64:
+    build:
+      context: ./
+      dockerfile: Dockerfile.x64
+    tty: true
+    volumes:
+    - ./output/x64:/output:rw
+    - ./scripts/:/scripts/:r
+  build-pvr.zattoo_aarch64:
+    build:
+      context: ./
+      dockerfile: Dockerfile.aarch64
+    tty: true
+    platform: linux/arm64/v8
+    volumes:
+    - ./output/aarch64:/output:rw
+    - ./scripts/:/scripts/:r
+

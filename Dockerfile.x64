@@ -1,0 +1,18 @@
+
+FROM ubuntu:22.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt update --fix-missing
+RUN apt update && apt -y install build-essential git curl cmake autoconf libtool
+
+RUN mkdir -p /data
+RUN mkdir -p /output
+RUN mkdir -p /scripts
+
+VOLUME /output
+VOLUME /scripts
+
+WORKDIR /data
+CMD [ "bash", "/scripts/build.sh" ]
+
+
